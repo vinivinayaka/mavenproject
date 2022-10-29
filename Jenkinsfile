@@ -1,39 +1,20 @@
 pipeline {
-
-    agent any
-
+    agent any 
     stages {
-
-        stage('Clean') {
-
+        stage('Build') { 
             steps {
-
-                sh 'mvn clean'
-
+                // 
             }
-
         }
-
-        stage('Validate') {
-
+        stage('Test') { 
             steps {
-
-                sh 'mvn validate'
-
+                // 
             }
-
         }
-
-        stage('Test') {
-
+        stage('Deploy') { 
             steps {
-
-                sh 'mvn test -DskipTests'
-
+                // 
             }
-
         }
-
     }
-
 }
