@@ -1,39 +1,18 @@
-pipeline {
-
+pipeline{
     agent any
-
-    stages {
-
-        stage('Clean') {
-
-            steps {
-
-                sh 'mvn clean'
-
-            }
-
-        }
-
-        stage('Validate') {
-
-            steps {
-
-                sh 'mvn validate'
-
-            }
-
-        }
-
-        stage('Test') {
-
-            steps {
-
-                sh 'mvn test -DskipTests'
-
-            }
-
-        }
-
+    tools{
+        maven 'Maven'
     }
-
+    stages{
+        stage("SCM Checkout"){
+            steps{
+            git 'https://github.com/vinivinayaka/mavenproject.git'
+            }
+        }
+        stage("Maven Build"){
+            steps{
+                bat 'mvn clean package'
+            }
+        }
+    }
 }
