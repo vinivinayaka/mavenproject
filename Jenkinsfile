@@ -30,7 +30,8 @@ pipeline {
 
                 sh 'mvn test -DskipTests'
 
-            }
+            
+           }
 
         }
 
